@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?> 
 <park>
-	<DateTime>2022-01-21T17:39:56</DateTime>
+	<DateTime>2022-01-24T18:39:54</DateTime>
 	<Name>CDGA</Name>
 	<Status>Open</Status>
 	<Free>0094</Free>

@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='UTF-8'?> 
 <park>
-	<DateTime>2022-01-21T17:39:53</DateTime>
+	<DateTime>2022-01-24T18:39:51</DateTime>
 	<Name>ARCT</Name>
 	<Status>Open</Status>
-	<Free>0122</Free>
+	<Free>0153</Free>
 	<Total>0460</Total>
 </park>
