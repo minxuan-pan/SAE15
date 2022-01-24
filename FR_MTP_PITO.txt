@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <park>
-<DateTime>2022-01-24T19:47:09.907</DateTime>
+<DateTime>2022-01-24T22:57:09.989</DateTime>
 <Name>Pitot</Name>
 <Status>Open</Status>
-<Free>389</Free>
+<Free>406</Free>
 <Total>588</Total>
 <DisplayOpenIf>100</DisplayOpenIf>
 <Reserve></Reserve>

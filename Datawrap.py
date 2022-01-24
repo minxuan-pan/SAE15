@@ -5,7 +5,7 @@ parkings=['FR_MTP_ANTI','FR_MTP_COME','FR_MTP_CORU','FR_MTP_EURO','FR_MTP_FOCH',
 Toville=0 #Total parkings of the city
 FrVille=0 #Total free parkings of the city
 ToVelo=0
-FrVelo=0
+AvVelo=0
 period=int(input("Période(min):"))
 period=period*60
 duration=int(input("duration(sec):"))
@@ -32,18 +32,20 @@ for p in range(t):
     f3.write(data2.text)
     f3.close()
     tree2=etree.parse("VELO.txt")
-    for user in tree2.xpath('//si/@fr'):
-        fr=int(user)
-        FrVelo=FrVelo+fr
+    for user in tree2.xpath('//si/@av'):
+        av=int(user)
+        AvVelo=AvVelo+av
     for user in tree2.xpath('//si/@to'):
         to=int(user)
         ToVelo=ToVelo+to
-    PourcentVelo=FrVelo/ToVelo
+    PourcentVelo=AvVelo/ToVelo
     PercentVoiture=FrVille/Toville
+    PercentVoiture=1-PercentVoiture
     temps=time.time()
     temps=time.ctime(temps)
+    t=temps.split(' ')
     f2=open("Data.txt","a",encoding='utf8')
-    f2.write(f"{temps}      {PercentVoiture*100}%       {PourcentVelo*100}%")
+    f2.write(f"{t[3]}      {PercentVoiture*100}%       {PourcentVelo*100}%")
     f2.write('\n')
     f2.close()
     time.sleep(duration)
