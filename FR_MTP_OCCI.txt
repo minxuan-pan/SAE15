@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='UTF-8'?> 
 <park>
-	<DateTime>2022-01-24T18:39:54</DateTime>
+	<DateTime>2022-01-24T19:44:51</DateTime>
 	<Name>OCCI</Name>
 	<Status>Open</Status>
-	<Free>0608</Free>
+	<Free>0627</Free>
 	<Total>0627</Total>
 </park>
