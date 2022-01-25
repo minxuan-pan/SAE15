@@ -11,41 +11,47 @@ period=period*60
 duration=int(input("duration(sec):"))
 t=int(period/duration)
 for p in range(t):
-    for x in parkings:
-        data=requests.get(f"https://data.montpellier3m.fr/sites/default/files/ressources/{x}.xml")
-        f1=open(f"{x}.txt","w",encoding='utf8')
-        f1.write(data.text)
-        f1.close()
-        tree=etree.parse(f"{x}.txt")
-        a=0
-        b=0
-        for user in tree.xpath("Total"):
-            total=int(user.text)
-            a=a+total
-        for user in tree.xpath("Free"):
-            libre=int(user.text)
-            b=b+libre
-        Toville=Toville+a
-        FrVille=FrVille+b
-    data2=requests.get("https://data.montpellier3m.fr/sites/default/files/ressources/TAM_MMM_VELOMAG.xml")
-    f3=open("VELO.txt","w",encoding='utf8')
-    f3.write(data2.text)
-    f3.close()
-    tree2=etree.parse("VELO.txt")
-    for user in tree2.xpath('//si/@av'):
-        av=int(user)
-        AvVelo=AvVelo+av
-    for user in tree2.xpath('//si/@to'):
-        to=int(user)
-        ToVelo=ToVelo+to
-    PourcentVelo=AvVelo/ToVelo
-    PercentVoiture=FrVille/Toville
-    PercentVoiture=1-PercentVoiture
-    temps=time.time()
-    temps=time.ctime(temps)
-    t=temps.split(' ')
-    f2=open("Data.txt","a",encoding='utf8')
-    f2.write(f"{t[3]}    {round(PercentVoiture*100, 2)}%    {round(PourcentVelo*100, 2)}%")
-    f2.write('\n')
-    f2.close()
-    time.sleep(duration)
+    try:
+        for x in parkings:
+            try:
+                data=requests.get(f"https://data.montpellier3m.fr/sites/default/files/ressources/{x}.xml")
+                f1=open(f"{x}.txt","w",encoding='utf8')
+                f1.write(data.text)
+                f1.close()
+                tree=etree.parse(f"{x}.txt")
+                a=0
+                b=0
+                for user in tree.xpath("Total"):
+                    total=int(user.text)
+                    a=a+total
+                for user in tree.xpath("Free"):
+                    libre=int(user.text)
+                    b=b+libre
+                Toville=Toville+a
+                FrVille=FrVille+b
+            except:
+                continue
+        data2=requests.get("https://data.montpellier3m.fr/sites/default/files/ressources/TAM_MMM_VELOMAG.xml")
+        f3=open("VELO.txt","w",encoding='utf8')
+        f3.write(data2.text)
+        f3.close()
+        tree2=etree.parse("VELO.txt")
+        for user in tree2.xpath('//si/@av'):
+            av=int(user)
+            AvVelo=AvVelo+av
+        for user in tree2.xpath('//si/@to'):
+            to=int(user)
+            ToVelo=ToVelo+to
+        PourcentVelo=AvVelo/ToVelo
+        PercentVoiture=FrVille/Toville
+        PercentVoiture=1-PercentVoiture
+        temps=time.time()
+        temps=time.ctime(temps)
+        t=temps.split(' ')
+        f2=open("Data.txt","a",encoding='utf8')
+        f2.write(f"{t[3]}    {round(PercentVoiture*100, 2)}%    {round(PourcentVelo*100, 2)}%")
+        f2.write('\n')
+        f2.close()
+        time.sleep(duration)
+    except:
+        continue
