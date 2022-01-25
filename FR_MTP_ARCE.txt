@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?> 
 <park>
-	<DateTime>2022-01-24T22:56:50</DateTime>
+	<DateTime>2022-01-25T11:47:54</DateTime>
 	<Name>ARCE</Name>
 	<Status>Open</Status>
 	<Free>0230</Free>
