@@ -47,9 +47,9 @@ for p in range(t):
         PercentVoiture=1-PercentVoiture
         temps=time.time()
         temps=time.ctime(temps)
-        t=temps.split(' ')
+        te=temps.split(' ')
         f2=open("Data.txt","a",encoding='utf8')
-        f2.write(f"{t[3]}    {round(PercentVoiture*100, 2)}%    {round(PourcentVelo*100, 2)}%")
+        f2.write(f"{te[3]}    {round(PercentVoiture*100, 2)}%    {round(PourcentVelo*100, 2)}%")
         f2.write('\n')
         f2.close()
         time.sleep(duration)
