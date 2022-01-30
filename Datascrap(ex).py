@@ -16,7 +16,7 @@ for p in range(t):
     for x in parkings: #la liste "parkings" contient les noms des fichiers de chaque zone. On fait un boucle pour récupérer des données de chaque zone.
         #Récupérer les données et les mettre dans un nouveau fichier
         data=requests.get(f"https://data.montpellier3m.fr/sites/default/files/ressources/{x}.xml")
-        f1=open(f"{x}.txt","w",encoding='utf8')
+        f1=open(f"Datafolder/{x}.txt","w",encoding='utf8')
         f1.write(data.text)
         f1.close()
         #trier des données et choisir le nombre des places libre et des places total.
@@ -34,7 +34,7 @@ for p in range(t):
         FrVille=FrVille+b
     # Récupérer des données de places du vélo
     data2=requests.get("https://data.montpellier3m.fr/sites/default/files/ressources/TAM_MMM_VELOMAG.xml")
-    f3=open("VELO.txt","w",encoding='utf8')
+    f3=open("Datafolder/VELO.txt","w",encoding='utf8')
     f3.write(data2.text)
     f3.close()
     # Trier

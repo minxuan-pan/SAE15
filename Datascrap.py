@@ -15,7 +15,7 @@ for p in range(t):
         for x in parkings:
             try:
                 data=requests.get(f"https://data.montpellier3m.fr/sites/default/files/ressources/{x}.xml")
-                f1=open(f"{x}.txt","w",encoding='utf8')
+                f1=open(f"Datafolder/{x}.txt","w",encoding='utf8')
                 f1.write(data.text)
                 f1.close()
                 tree=etree.parse(f"{x}.txt")
@@ -32,7 +32,7 @@ for p in range(t):
             except:
                 continue
         data2=requests.get("https://data.montpellier3m.fr/sites/default/files/ressources/TAM_MMM_VELOMAG.xml")
-        f3=open("VELO.txt","w",encoding='utf8')
+        f3=open("Datafolder/VELO.txt","w",encoding='utf8')
         f3.write(data2.text)
         f3.close()
         tree2=etree.parse("VELO.txt")
